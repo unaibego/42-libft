@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ubegona <ubegona@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/30 12:50:52 by ubegona           #+#    #+#             */
-/*   Updated: 2022/09/07 13:56:07 by ubegona          ###   ########.fr       */
+/*   Created: 2022/09/22 08:56:02 by ubegona           #+#    #+#             */
+/*   Updated: 2022/09/22 10:17:39 by ubegona          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int	i;
+	char	a;
 
-	i = 0;
-	while (i < n && ((char *)src || (char *)dst))
+	if (n == -2147483648)
 	{
-		((char *)dst)[i] = ((char *)src)[i];
-		i++;
+		write(fd, "-2147483648", 11);
 	}
-	return (dst);
+	else
+	{
+		if (n < 0)
+		{
+			write(fd, "-", 1);
+			n = n * -1;
+		}
+		if (n >= 10)
+		{
+			ft_putnbr_fd(n / 10, fd);
+		}
+		a = (n % 10) + 48;
+		write(fd, &a, 1);
+	}
 }

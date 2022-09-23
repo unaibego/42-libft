@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ubegona <ubegona@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/30 12:50:52 by ubegona           #+#    #+#             */
-/*   Updated: 2022/09/07 13:56:07 by ubegona          ###   ########.fr       */
+/*   Created: 2022/09/08 10:39:08 by ubegona           #+#    #+#             */
+/*   Updated: 2022/09/22 12:04:32 by ubegona          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char			*p;
 	unsigned int	i;
+	unsigned int	j;
 
-	i = 0;
-	while (i < n && ((char *)src || (char *)dst))
+	i = ft_strlen(s);
+	j = 0;
+	if (len <= i)
+		p = malloc(len + 1);
+	if (len > i)
+		p = malloc(i + 1);
+	if (p == 0)
+		return (NULL);
+	while (start + j < i && j < len)
 	{
-		((char *)dst)[i] = ((char *)src)[i];
-		i++;
+		p[j] = s[start + j];
+		j++;
 	}
-	return (dst);
+	p[j] = '\0';
+	return (p);
 }

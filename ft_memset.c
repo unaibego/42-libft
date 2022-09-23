@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ubegona <ubegona@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/30 12:50:52 by ubegona           #+#    #+#             */
-/*   Updated: 2022/09/07 13:56:07 by ubegona          ###   ########.fr       */
+/*   Created: 2022/08/30 11:59:11 by ubegona           #+#    #+#             */
+/*   Updated: 2022/09/08 10:27:29 by ubegona          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned int	i;
+	char			*str;
+	char			u;
 
+	str = (char *)s;
+	u = (char)c;
 	i = 0;
-	while (i < n && ((char *)src || (char *)dst))
+	while (i < n)
 	{
-		((char *)dst)[i] = ((char *)src)[i];
+		str[i] = u;
 		i++;
 	}
-	return (dst);
+	return (str);
 }
