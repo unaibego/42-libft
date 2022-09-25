@@ -22,6 +22,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*primerelemento;
 	primerelemento = malloc(sizeof(t_list));
+	printf("non dago akatza %c\n", content[0]);
 	primerelemento->content = content;
 	primerelemento->next = NULL;
 	
@@ -31,4 +32,4 @@ int main()
 {
 	printf("a ver que sale %s", ft_lstnew("hola"));
 	return 0;
-}
+} 
