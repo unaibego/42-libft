@@ -6,7 +6,7 @@
 #    By: ubegona <ubegona@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/30 08:54:44 by ubegona           #+#    #+#              #
-#    Updated: 2022/09/26 10:36:34 by ubegona          ###   ########.fr        #
+#    Updated: 2022/09/27 12:48:05 by ubegona          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ fclean: clean
 	rm -f $(NAME) $(BOBJS)
 re : fclean all
 
-bonus :  $(OBJS) $(BOBJS)
+bonus : $(OBJS) $(BOBJS)
 	$(AR) $(OBJS) $(BOBJS)
 
 rebonus: fclean bonus
